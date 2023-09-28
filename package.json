@@ -1,0 +1,32 @@
+{
+    "name": "top-todo-list",
+    "version": "0.0.1",
+    "description": "theodinproject.com",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "dev": "webpack serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/netizen112/TOP-todo-list.git"
+    },
+    "keywords": [
+        "theodinproject.com"
+    ],
+    "author": "netizen112",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/netizen112/TOP-todo-list/issues"
+    },
+    "homepage": "https://github.com/netizen112/TOP-todo-list#readme",
+    "devDependencies": {
+        "css-loader": "^6.8.1",
+        "html-webpack-plugin": "^5.5.3",
+        "style-loader": "^3.3.3",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^4.15.1"
+    }
+}
