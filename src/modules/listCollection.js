@@ -31,4 +31,39 @@ function addItemToList(title, description, dueDate, priority, index) {
     return "SUCCESS";
 }
 
-export { listCollection, addList, addItemToList };
+function deleteItemFromList(listIndex, itemIndex) {
+    listCollection[listIndex].removeItem(itemIndex);
+}
+
+function getListCollection() {
+    return [...listCollection];
+}
+
+function getList(index) {
+    return listCollection[index].items;
+}
+
+function deleteList(index) {
+    //TODO add error checking
+    listCollection.splice(index, 1);
+}
+
+function editListName(newName, index) {
+    listCollection[index].listName = newName;
+    return "SUCCESS";
+}
+
+function editTodoItemTitle(newTitle, listIndex, itemIndex) {
+    listCollection[listIndex].setItemTitle(newTitle, itemIndex);
+}
+
+export {
+    listCollection,
+    addList,
+    addItemToList,
+    deleteItemFromList,
+    getListCollection,
+    getList,
+    editListName,
+    editTodoItemTitle,
+};

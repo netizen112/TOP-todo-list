@@ -47,10 +47,22 @@ h6 {
 body {
     background: #FFE5B4;
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 5fr;
-    grid-template-areas: "logo nav"
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 8fr;
+    grid-template-areas: "home nav"
                         "sidebar main";
+}
+
+#home {
+    grid-area: home;
+    border: 2px solid brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img#logo {
+    width: 200px;
 }
 
 nav {
@@ -58,13 +70,74 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid brown;
+
 }
 
 #sidebar {
     grid-area: sidebar;
+    padding: 5px;
+    border: 2px solid brown;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0px;
+    width: 100%;
+}
+
+#sidebar li {
+    border: 2px solid brown;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+#sidebar li:hover {
+    cursor: pointer;
+    background: brown;
+    color: white;
 }
 
 #main {
     grid-area: main;
     padding: 20px;
+    border: 2px solid brown;
+
+}
+
+#main ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#main li {
+    border: 2px solid maroon;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.todoButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnDeleteTodo {
+    background: red;
+    width: 2rem;
+}
+
+.dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

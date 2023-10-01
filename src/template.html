@@ -6,8 +6,51 @@
         <title><%= htmlWebpackPlugin.options.title %></title>
     </head>
     <body>
+        <section id="home"><img alt="logo" id="logo" /></section>
         <nav><h1>ToDo List</h1></nav>
-        <section id="sidebar"></section>
-        <section id="main"></section>
+        <section id="sidebar">
+            <button id="btn-create-list">Create List</button>
+            <ul id="list-items"></ul>
+        </section>
+        <section id="main">
+            <button id="btn-create-todo">Create ToDo</button>
+            <ul id="todo-items"></ul>
+        </section>
+        <dialog id="dialog-create-list" class="dialog">
+            <form method="dialog" id="form-create-list">
+                <label for="list-name"
+                    >List Name<input
+                        type="text"
+                        name="list-name"
+                        id="list-name"
+                        placeholder="Enter list name"
+                        autofocus
+                /></label>
+                <button type="submit" id="btn-submit-create-list">Create</button>
+                <button id="btn-close-create-list">Close</button>
+
+            </form>
+        </dialog>
+        <dialog id="dialog-create-todo" class="dialog">
+            <form method="dialog" id="form-create-todo">
+                <label for="title"
+                    >Title:<input type="text" name="title" id="input-todo-title"
+                /></label>
+                <label for="description"
+                    >Description:<input
+                        type="text"
+                        name="description"
+                        id="input-todo-description"
+                /></label>
+                <label for="dueDate">Due Date:<input type="date" name="dueDate" id="input-due-date"></label>
+                <label for="priority">Select Priority:<select name="priority" id="select-priority">
+                    <option value="0">Low</option>
+                    <option value="1">Medium</option>
+                    <option value="2">High</option>
+                </select></label>
+                <button type="submit" id="btn-submit-create-todo">Create!</button>
+                <button id="btn-close-create-todo">Close</button>
+            </form>
+        </dialog>
     </body>
 </html>

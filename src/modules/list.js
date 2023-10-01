@@ -12,9 +12,18 @@ class List {
     addItem(item) {
         this._items.push(item);
     }
+
+    removeItem(index) {
+        //TODO add error checking
+        this._items.splice(index, 1);
+    }
+
+    setItemTitle(newTitle, index) {
+        this._items[index].title = newTitle;
+    }
 }
 
-function createList(listName){
+function createList(listName) {
     let list = new List(listName);
     return list;
 }

@@ -23,7 +23,7 @@ class ToDo {
     get dueDate() {
         return this._dueDate;
     }
-    set description(input) {
+    set dueDate(input) {
         this._dueDate = input;
     }
 
