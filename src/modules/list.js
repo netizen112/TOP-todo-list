@@ -18,8 +18,12 @@ class List {
         this._items.splice(index, 1);
     }
 
-    setItemTitle(newTitle, index) {
+    editItem(index, newTitle, newDesc, newDate, newPriority) {
         this._items[index].title = newTitle;
+        this._items[index].description = newDesc;
+        this._items[index].dueDate = newDate;
+        this._items[index].priority = newPriority;
+        return "SUCCESS";
     }
 }
 

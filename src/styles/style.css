@@ -44,18 +44,23 @@ h6 {
 }
 /*#endregion*/
 
+:root {
+    --main-border-color: #283593;
+}
+
 body {
-    background: #FFE5B4;
+    background: #E8EAF6;
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 8fr;
-    grid-template-areas: "home nav"
-                        "sidebar main";
+    grid-template-areas:
+        "home nav"
+        "sidebar main";
 }
 
 #home {
     grid-area: home;
-    border: 2px solid brown;
+    border: 2px solid var(--main-border-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,14 +75,15 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid brown;
-
+    border: 2px solid var(--main-border-color);
 }
+
+/*#region Sidebar*/
 
 #sidebar {
     grid-area: sidebar;
     padding: 5px;
-    border: 2px solid brown;
+    border: 2px solid var(--main-border-color);
 }
 
 #sidebar ul {
@@ -86,28 +92,55 @@ nav {
     width: 100%;
 }
 
-#sidebar li {
+.list {
     border: 2px solid brown;
     margin: 5px;
     padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.6rem;
+    border-radius: 5px;
 }
 
 #sidebar li:hover {
-    cursor: pointer;
     background: brown;
     color: white;
 }
 
+.activeList {
+    border: 2px solid brown;
+    box-shadow: 0 0 10px brown;
+    background-color: #C5CAE9;
+    transform: scale(1.05)
+}
+
+.btnExpandList {
+    width: 1.3rem;
+}
+
+.expandedList {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+}
+
+.btnDeleteList,
+.btnEditList {
+    width: 2rem;
+}
+
+.collapsedList span {
+    cursor: default;
+}
+
+/*#endregion*/
+
 #main {
     grid-area: main;
     padding: 20px;
-    border: 2px solid brown;
-
+    border: 2px solid var(--main-border-color);
+    overflow: scroll;
 }
+
+/*#region todoItem*/
 
 #main ul {
     list-style-type: none;
@@ -116,24 +149,49 @@ nav {
 }
 
 #main li {
-    border: 2px solid maroon;
-    margin: 5px;
+    border-radius: 5px;
     padding: 5px;
+    margin-bottom: 8px;
+}
+
+.lowPriority {
+    border: 2px solid #26bf47;
+    box-shadow: 0 0 10px #26bf47;
+}
+
+.mediumPriority {
+    border: 2px solid #e8891d;
+    box-shadow: 0 0 10px #e8891d;
+}
+
+.highPriority {
+    border: 2px solid #ec1313;
+    box-shadow: 0 0 10px #ec1313;
+}
+
+.btnDeleteTodo,
+.btnEditTodo {
+    width: 2rem;
+}
+
+.btnExpand {
+    width: 2rem;
+}
+
+.collapsedDisplay {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.todoButtons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.expandedContent {
+    /* display: none; */
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
 }
 
-.btnDeleteTodo {
-    background: red;
-    width: 2rem;
-}
+/*#endregion*/
 
 .dialog {
     position: absolute;

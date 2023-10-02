@@ -39,7 +39,7 @@ function getListCollection() {
     return [...listCollection];
 }
 
-function getList(index) {
+function getListItems(index) {
     return listCollection[index].items;
 }
 
@@ -48,22 +48,46 @@ function deleteList(index) {
     listCollection.splice(index, 1);
 }
 
-function editListName(newName, index) {
+function editListName(index, newName) {
     listCollection[index].listName = newName;
     return "SUCCESS";
 }
 
-function editTodoItemTitle(newTitle, listIndex, itemIndex) {
-    listCollection[listIndex].setItemTitle(newTitle, itemIndex);
+function editTodoItem(
+    listIndex,
+    itemIndex,
+    newTitle,
+    newDesc,
+    newDate,
+    newPriority
+) {
+    let status = listCollection[listIndex].editItem(
+        itemIndex,
+        newTitle,
+        newDesc,
+        newDate,
+        newPriority
+    );
+    if (status == "SUCCESS") {
+        return status;
+    } else {
+        return "ERROR";
+    }
+}
+
+function getList(index) {
+    return listCollection[index];
 }
 
 export {
     listCollection,
     addList,
+    deleteList,
     addItemToList,
     deleteItemFromList,
     getListCollection,
-    getList,
+    getListItems,
     editListName,
-    editTodoItemTitle,
+    editTodoItem,
+    getList,
 };
